@@ -1,5 +1,6 @@
 import server from './server.js';
+import config from './config.js';
 import { logger } from './util.js';
 
-server.listen(3000)
-    .on('listening', () => logger.info('Server is listening on port 3000'));
+server.listen(config.port)
+    .on('listening', () => logger.info(`Server is listening on port ${config.port}`));
