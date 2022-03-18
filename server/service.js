@@ -10,9 +10,9 @@ export class Service {
         return createReadStream(filename);
     }
 
-    async getFileInfo(file) {
+    async getFileInfo(filename) {
         // file = home/index.html
-        const filePath = join(config.dir.publicDirectory, file);
+        const filePath = join(config.dir.publicDirectory, filename);
 
         await access(filePath);
 
@@ -24,8 +24,8 @@ export class Service {
         }
     }
 
-    async getFileStream(file) {
-        const { name, type } = await this.getFileInfo(file);
+    async getFileStream(filename) {
+        const { name, type } = await this.getFileInfo(filename);
         
         return {
             stream: this.createFileStream(name),
