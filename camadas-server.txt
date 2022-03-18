@@ -1,0 +1,7 @@
+server
+    - service: regra de negócio e processamento
+    - controller: intermediador entre apresentacao e negocio
+    - routes: apresentacao
+    - server: cria o servidor
+    - index: instancia o servidor
+    - config: tudo que for estatico
