@@ -1,7 +1,7 @@
 import { Service } from './service.js';
 
 export class Controller {
-    constructor(service) {
+    constructor() {
         this.service = new Service();
     }
 
