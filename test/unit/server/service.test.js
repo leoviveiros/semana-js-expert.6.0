@@ -17,7 +17,7 @@ describe('#Service - test suite for business rules and processing', () => {
 
         const service = new Service();
 
-        jest.spyOn(service, 'createFileStream')
+        jest.spyOn(service, Service.prototype.createFileStream.name)
             .mockReturnValue(mockFileStream);
 
         const expectedFileStream = service.createFileStream('index.html');
@@ -45,8 +45,10 @@ describe('#Service - test suite for business rules and processing', () => {
 
         const result = await service.getFileStream('home/index.html');
 
-        expect(result.stream).toBe(mockFileStream);
-        expect(result.type).toBe('.html');
+        expect(result).toStrictEqual({
+            stream: mockFileStream,
+            type: '.html',
+        });
     });
 
 })
