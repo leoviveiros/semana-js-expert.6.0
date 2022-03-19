@@ -7,6 +7,7 @@
     "scripts": {
         "start": "node server/index.js",
         "live-reload": "nodemon server/index.js",
+        "live-reload:docker": "docker-compose up",
         "test": "set NODE_OPTIONS=--experimental-vm-modules && npx jest --runInBand --no-cache",
         "test:watch": "set NODE_OPTIONS=--experimental-vm-modules && npx jest --runInBand --no-cache --watchAll",
         "test:coverage": "set NODE_OPTIONS=--experimental-vm-modules && npx jest --runInBand --no-cache --coverage test/unit"
