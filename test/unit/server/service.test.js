@@ -1,5 +1,7 @@
 import { describe, test, expect, jest, beforeEach } from '@jest/globals';
 
+import fs from 'fs';
+
 import { Service } from '../../../server/service';
 
 import config from '../../../server/config';
@@ -15,11 +17,10 @@ describe('#Service - test suite for business rules and processing', () => {
     test('createFileStream shoud return a readable stream', async () => {
         const mockFileStream = TestUtils.generateReadableStream(['data']);
 
-        const service = new Service();
-
-        jest.spyOn(service, Service.prototype.createFileStream.name)
+        jest.spyOn(fs, fs.createReadStream.name)
             .mockReturnValue(mockFileStream);
 
+        const service = new Service();
         const expectedFileStream = service.createFileStream('index.html');
 
         expect(expectedFileStream).toBe(mockFileStream);

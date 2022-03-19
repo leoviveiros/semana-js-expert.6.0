@@ -1,4 +1,4 @@
-import { createReadStream } from 'fs';
+import fs from 'fs';
 import { access } from 'fs/promises';
 import { join, extname } from 'path';
 
@@ -7,7 +7,7 @@ import config from './config.js';
 
 export class Service {
     createFileStream(filename) {
-        return createReadStream(filename);
+        return fs.createReadStream(filename);
     }
 
     async getFileInfo(filename) {
